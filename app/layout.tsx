@@ -3,6 +3,8 @@ import { Lalezar, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { DirectionProvider } from "@/components/ui/direction";
+
+
 const lalezar = Lalezar({
   weight: "400",
   subsets: ["latin"]
@@ -26,11 +28,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${lalezar.className} ${geistMono.variable} antialiased bg-[#EAEFEF] dark:bg-[#25343F]`}
+        className={`${lalezar.className} ${geistMono.variable} antialiased bg-[#EAEFEF] dark:bg-[#25343F] relative`}
       >
 
         <DirectionProvider dir="rtl" direction="rtl" >
-
         {children}
         </DirectionProvider>
       </body>
