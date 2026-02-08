@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Lalezar, Geist_Mono } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+import "./globals.css";
+import { DirectionProvider } from "@/components/ui/direction";
+const lalezar = Lalezar({
+  weight: "400",
+  subsets: ["latin"]
 });
 
 const geistMono = Geist_Mono({
@@ -23,11 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${lalezar.className} ${geistMono.variable} antialiased bg-[#EAEFEF] dark:bg-[#25343F]`}
       >
+
+        <DirectionProvider dir="rtl" direction="rtl" >
+
         {children}
+        </DirectionProvider>
       </body>
     </html>
   );
